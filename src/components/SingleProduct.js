@@ -157,31 +157,36 @@
 
 
 
-
+const CohortName = '2301-FTB-MT-WEB-FT';
+const BaseUrl = `https://strangers-things.herokuapp.com/api/${CohortName}`;
 
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const SingleProduct = () => {
+const SingleProduct = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await fetch(`${BaseUrl}/posts/${id}`);
-        const data = await response.json();
         
-        setProduct(data.data.posts[0]);
-        
-        console.log(response)
+      console.log(props.productProps)
+
+      let individualProduct = props.productProps.filter((SingleProduct) => {
+          if (SingleProduct._id == id){
+            return SingleProduct
+          }
+        })
+
+      setProduct(individualProduct[0])
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchProductData();
-  }, [id]);
+  }, []);
 
   return (
     <div>

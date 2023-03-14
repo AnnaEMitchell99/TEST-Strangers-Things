@@ -4,7 +4,7 @@ const BaseUrl = `https://strangers-things.herokuapp.com/api/${CohortName}`;
 import {createRoot} from "react-dom/client";
 import {useState, useEffect} from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"; 
-import { AllProducts, SingleProduct, Homepage } from "./components";
+import { AllProducts, SingleProduct, RegisterForm, Login } from "./components";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -31,51 +31,40 @@ const App = () => {
     }, [])
 
     return(
-        // <div> 
+       
         
     <BrowserRouter>
 
         <div>
 
             <div>
-                <nav>
-                <Link to="/">Homepage</Link>
+                <nav id="links">
+                <Link to="/">Listings</Link>
+                <Link to="/register">Sign Up</Link>
+                <Link to="/login">Login</Link>
                 </nav>
-                <nav>
-                    {/* <Link to="./AllProducts">All Products</Link> */}
-                    
-                </nav>
+               
                <section>
                 {
                     
                 }
                </section>
             </div>
-                {/* {
-                    products.length ? products.map((singleProductElement, idx) => {
-                        return (
-                            <div>
-                                <p id="title">Title: {singleProductElement.title}</p>
-                                <p id="description">Description: {singleProductElement.description}</p>
-                                <p id="price">Price: {singleProductElement.price}</p>
-                                <p id="location">Location: {singleProductElement.location}</p>
-                                <p id="username">Username: {singleProductElement.username}</p>
-                            </div>
-                        )
-                    }) : <div>No data yet</div>
-                } */}
+              
             <Routes>
-                {/* <Route path="/posts"element={<AllProducts productProps={products}/>} /> */}
+           
                 <Route path="/"element={<AllProducts productProps={products}/>} />
-                {/* <Route path="/allproducts/" component={<AllProducts productProps={products} setProducts={setProducts}/>} /> */}
-                {/* <Route path="/" element={<Homepage />} /> */}
-                {/* <Route path="/products" element={<AllProducts productProps={products} />} /> */}
-                <Route path="/products/:id" element={<SingleProduct />} />
+               
+                <Route path="/products/:id" element={<SingleProduct productProps={products}/>} />
+
+                <Route path="register" element={<RegisterForm />}/>
+
+                <Route path="login" element={<Login />}/>
             </Routes>
             
         </div>
     </BrowserRouter>
-    // </div>
+   
     )
 }
 
