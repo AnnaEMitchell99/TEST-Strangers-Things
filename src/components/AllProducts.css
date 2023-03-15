@@ -1,13 +1,21 @@
-/* #list-of-products-section{
-    border: 3px black solid;
-} */
-
-/* .descriptor{
-    border: 3px black solid;
-} */
 
 #descriptors{
     border: 3px black solid;
     margin: 5px;
     padding: 3px;
+    background-color: lightblue;
+    margin-top: 20px;
+    font-size: .75em;
+    width: 100%;
+}
+
+.descriptor{
+    background-color: lightblue;
+}
+
+#searchbar{
+    height: 2.5em;
+    width: 20em;
+    margin: 10px;
+    background-color: lightgray;
 }

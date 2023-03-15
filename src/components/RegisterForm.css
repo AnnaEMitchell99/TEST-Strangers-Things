@@ -1,0 +1,25 @@
+#entireForm{
+  font-size:1.5em;
+  
+}
+
+#newUsername{
+    height:2.5em;
+    width: 12em;
+    margin: 3px;
+    font-size:1.15em;
+}
+
+#newPassword{
+    height:2.5em;
+    width: 12em;
+    margin: 3px;
+    font-size:1.15em;
+}
+
+#button{
+    height:2.5em;
+    width: 12em;
+    margin: 3px;
+    font-size:1.15em;
+}

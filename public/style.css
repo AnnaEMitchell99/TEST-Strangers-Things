@@ -1,6 +1,16 @@
 #links{
     display:flex;
     justify-content:space-between;
-    margin-right: 70%;
-    background-color: lightgray;
+    margin-right: 60%;
+    /* background-color: lavender; */
+    height: 2em;
+    font-size: 1.5em;
+    width:40%;
+    padding-top: .5em;
+    padding-right: .5em;
+    padding-left: .5em;
+}
+
+*{
+    background-color: rgb(246, 208, 214);
 }

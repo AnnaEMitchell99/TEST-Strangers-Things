@@ -1,0 +1,13 @@
+#allReturn{
+height: 80%;
+width: 50%;
+margin: 1.5%;
+padding: 1%;
+font-size: 2em;
+}
+
+#empty-div{
+    background-color: lightblue;
+    height:0%;
+    width:0%;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react"; 
 import { useNavigate } from "react-router-dom"
+import "./RegisterForm.css"
 
 
 const RegisterForm = () => {
@@ -66,12 +67,12 @@ const RegisterForm = () => {
     }
 
     return (
-        <div>
+        <div id="entireForm">
             <h2>Sign up for a new account here!</h2>
             <h3>Please choose a username and password at least 8 characters in length.</h3>
 
             <form onSubmit={sendRegisterNewAccountReq}>
-                <input 
+                <input id="newUsername"
                     type="text" 
                     placeholder="Set New Username"
                     
@@ -79,7 +80,7 @@ const RegisterForm = () => {
                     
                     onChange={(event) => setNewUsername(event.target.value)}
                 />
-                <input 
+                <input id="newPassword"
                     type="text" 
                     placeholder="Set New Password" 
                     
@@ -87,7 +88,7 @@ const RegisterForm = () => {
                     
                     onChange={(event) => setNewPassword(event.target.value)}
                 />
-                <button type="submit">Create Account</button>
+                <button id="button" type="submit">Create Account</button>
             </form>
         </div>
     )

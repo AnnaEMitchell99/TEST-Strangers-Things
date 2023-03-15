@@ -1,0 +1,44 @@
+#createPost{
+    /* margin-left: 30%; */
+    margin-right: 70%;
+    border: black solid 3px;
+    padding: 5px;
+}
+
+#title{
+    margin-left: 25%;
+}
+
+.inputBoxes{
+    display:flex;
+    justify-content: flex-start;
+    padding: 1.5em;
+    font-size:1.5em;
+    font-weight:bold;
+}
+
+#titleInput{
+display:flex;
+}
+
+#descriptionInput{
+    display:flex;
+    /* justify-content:space-between; */
+
+}
+
+#priceInput{
+display:flex;
+}
+
+#willDeliverCheckbox{
+display:flex;
+}
+
+#createPostButton{
+
+    margin-left:22%;
+    width: 9em;
+    margin-bottom: 10px;
+    background-color: lightblue;
+}
