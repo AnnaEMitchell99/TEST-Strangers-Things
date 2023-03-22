@@ -3,14 +3,14 @@
     border: 3px black solid;
     margin: 5px;
     padding: 3px;
-    background-color: lightblue;
+    background-color: white;
     margin-top: 20px;
     font-size: .75em;
     width: 100%;
 }
 
 .descriptor{
-    background-color: lightblue;
+    background-color: white;
 }
 
 #searchbar{

@@ -17,6 +17,10 @@ const SingleProduct = (props) => {
     const fetchProductData = async () => {
 
       try {
+
+        if (!Array.isArray(props.productProps)) {
+          return;
+        }
         
 
       let individualProduct = props.productProps.filter((SingleProduct) => {
