@@ -25,7 +25,7 @@ const AllProducts = (props) => {
               "Content-Type": "application/json",
               Authorization: `Bearer ${myJWT}`,
             },
-            // body: JSON.stringify({ post: { _id: id } }),
+            
           });
           const result = await response.json();
           console.log(result);
