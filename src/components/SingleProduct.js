@@ -11,6 +11,10 @@ const SingleProduct = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const { postId } = useParams();
+  const [content, setContent] = useState("");
+  const [ message, setMessage ] = useState("")
+  const [ errorMessage, setErrorMessage ] = useState("")
 
 
   useEffect(() => {
@@ -38,25 +42,119 @@ const SingleProduct = (props) => {
     fetchProductData();
   }, []);
 
+//   const handleMessageSubmit = async (event) => {
+//     event.preventDefault();
+//     try {
+//       const token = localStorage.getItem("token");
+//       // const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
+//         const response = await fetch(`${BaseUrl}/posts/${postId}/messages`, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `Bearer ${token}`,
+//         },
+//         body: JSON.stringify({
+//           message: {
+//             content: message,
+//           },
+//         }),
+//       });
+//       const data = await response.json();
+//       if (response.ok) {
+//         console.log(data.message);
+//         setMessage('');
+//         setSuccessMessage('Message sent successfully!');
+//       } else {
+//         console.error(data);
+//         setErrorMessage('Failed to send message');
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
  
 
-  return (
-    <div id="allReturn">
-      {product ? (
-        <>
-          <h2>{product.title}</h2>
-          <p>Description: {product.description}</p>
-          <p>Price: {product.price}</p>
-          <p>Location: {product.location}</p>
-          <p>Username: {product.author.username}</p>
-        
-        </>
-      ) : (
-        <div id="emptyDiv"></div>
-      )}
-    </div>
-  );
+//   return (
+//     <div id="allReturn">
+//       {product ? (
+//         <>
+//           <h2>{product.title}</h2>
+//           <p>Description: {product.description}</p>
+//           <p>Price: {product.price}</p>
+//           <p>Location: {product.location}</p>
+//           <p>Username: {product.author.username}</p>
+//           <form onSubmit={handleMessageSubmit}>
+//           // {errorMessage && <p>{errorMessage}</p>}
+//           <label>
+//             Message:
+//             <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+//           </label>
+//           <button type="submit">Send Message</button>
+//         </form>
+//         </>
+//       ) : (
+//         <div id="emptyDiv"></div>
+//       )}
+//     </div>
+//   );
+// };
+
+// const [errorMessage, setErrorMessage] = useState('');
+
+const handleMessageSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${BaseUrl}/posts/${postId}/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message: {
+          content: content,
+        },
+      }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message);
+      setMessage('Message sent successfully!');
+    } else {
+      console.error(data);
+      setErrorMessage('Failed to send message');
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
+
+return (
+  <div id="allReturn">
+    {product ? (
+      <>
+        <h2>{product.title}</h2>
+        <p>Description: {product.description}</p>
+        <p>Price: {product.price}</p>
+        <p>Location: {product.location}</p>
+        <p>Username: {product.author.username}</p>
+        <form onSubmit={handleMessageSubmit}>
+          {errorMessage && <p>{errorMessage}</p>}
+          <label>
+            Message:
+            <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+          </label>
+          <button type="submit">Send Message</button>
+        </form>
+      </>
+    ) : (
+      <div id="emptyDiv"></div>
+    )}
+  </div>
+);
+    };
 
 export default SingleProduct;
 
